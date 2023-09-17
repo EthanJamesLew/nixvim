@@ -417,6 +417,12 @@ with lib; let
       description = "Enable pyright, for Python.";
     }
     {
+      name = "rlanguageserver";
+      description = "Enable R languageserver, for R.";
+      package = pkgs.rPackages.languageserver;
+      cmd = ["R" "--slave" "-e" "languageserver::run()"];
+    }
+    {
       name = "rnix-lsp";
       description = "Enable rnix LSP, for Nix";
       serverName = "rnix";
@@ -426,13 +432,6 @@ with lib; let
       description = "Enable ruff-lsp, for Python.";
       package = pkgs.python3Packages.ruff-lsp;
       serverName = "ruff_lsp";
-    }
-    {
-      name = "r-languageserver";
-      description = "Enable R languageserver, for R.";
-      serverName = "r_languageserver";
-      package = pkgs.rPackages.languageserver;
-      cmd = cfg: ["R" "--slave" "-e" "languageserver::run()"];
     }
     {
       name = "rust-analyzer";
