@@ -430,9 +430,9 @@ with lib; let
     {
       name = "r-languageserver";
       description = "Enable R languageserver, for R.";
-      serverName = "r-languageserver";
+      serverName = "r_languageserver";
       package = pkgs.rPackages.languageserver;
-      cmd = cfg: ["R" "--slave" "-e" "${cfg.package}/library/languageserver/R/languageserver::run()"];
+      cmd = cfg: ["R" "--slave" "-e" "languageserver::run()"];
     }
     {
       name = "rust-analyzer";
