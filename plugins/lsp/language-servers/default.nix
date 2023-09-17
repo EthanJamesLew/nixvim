@@ -428,6 +428,13 @@ with lib; let
       serverName = "ruff_lsp";
     }
     {
+      name = "r-languageserver";
+      description = "Enable R languageserver, for R.";
+      serverName = "r-languageserver";
+      package = pkgs.rPackages.languageserver;
+      cmd = cfg: ["R" "--slave" "-e" "${cfg.package}/library/languageserver/R/languageserver::run()"];
+    }
+    {
       name = "rust-analyzer";
       description = "Enable rust-analyzer, for Rust.";
       serverName = "rust_analyzer";
